@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random F1 Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random F1 Fact</h1>
+        <p id="fact"></p>
+        <button id="factButton">Get a New Fact</button>
+    </div>
+    <script>
+        const facts = [
+            {
+                fact: "Pit Stop Speed",
+                description: "The fastest pit stop ever recorded was 1.82 seconds. That's quicker than most people can tie their shoelaces!"
+            },
+            {
+                fact: "Team Orders",
+                description: "In 2002, Ferrari famously ordered Rubens Barrichello to let Michael Schumacher pass him at the Austrian Grand Prix. The crowd booed so loudly that it was like a scene from a soap opera!"
+            },
+            {
+                fact: "Tire Talk",
+                description: "F1 drivers can lose up to 3 kg (about 6.6 lbs) of weight during a race just from sweating. So, if you ever see a driver looking slim, they might just be dehydrated!"
+            },
+            {
+                fact: "Speed Limit",
+                description: "In the pit lane, the speed limit is usually 80 km/h (50 mph). Imagine getting a speeding ticket while driving that slow!"
+            },
+            {
+                fact: "Team Mascots",
+                description: "Some F1 teams have quirky mascots. For example, the Williams team had a giant inflatable gorilla named 'Billy' that would cheer them on. Talk about a wild teammate!"
+            },
+            {
+                fact: "Driver Nicknames",
+                description: "Many F1 drivers have funny nicknames. For instance, Kimi Räikkönen is often called 'The Iceman' because of his cool demeanor. But he might just be a fan of ice cream!"
+            },
+            {
+                fact: "Safety Car Shenanigans",
+                description: "When the safety car is deployed, drivers often use the time to chat with their engineers. It's like a group therapy session at 200 mph!"
+            },
+            {
+                fact: "Champagne Showers",
+                description: "The tradition of spraying champagne on the podium started in 1967. It’s the only time drivers are encouraged to waste perfectly good champagne!"
+            },
+            {
+                fact: "Grid Girls",
+                description: "For many years, grid girls were a staple of F1 races. They were often seen holding umbrellas and looking glamorous, but they also had to dodge flying tires and angry drivers!"
+            },
+            {
+                fact: "The 'F1 Diet'",
+                description: "Some drivers have been known to eat only a few small meals a day while training. So, if you ever see a driver munching on a salad, just know they’re not on a diet—they’re just preparing for the next race!"
+            }
+        ];
+
+        const factElement = document.getElementById('fact');
+        const factButton = document.getElementById('factButton');
+
+        function getRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const randomFact = facts[randomIndex];
+            factElement.innerHTML = `<strong>${randomFact.fact}</strong>: ${randomFact.description}`;
+        }
+
+        factButton.addEventListener('click', getRandomFact);
+
+        // Display a fact on initial load
+        getRandomFact();
+    </script>
+</body>
+</html>
